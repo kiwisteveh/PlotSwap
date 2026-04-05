@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <title>Plot Swap</title>
   <style>
+    #footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.85rem;
+  color: #777;
+}
     #title-banner {
   text-align: center;
   margin-bottom: 20px;
@@ -84,7 +90,13 @@
       text-align: center;
       border: 2px solid transparent;
       transition: background 0.15s, border-color 0.15s, transform 0.1s;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+cursor: grab;
     }
+    .tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
 
     .tile.correct {
       background: #c8e6c9;
@@ -342,5 +354,8 @@
     initLevelSelect();
     startNewGame();
   </script>
+  <footer id="footer">
+  Made by kiwisteveh · 2026
+</footer>
 </body>
 </html>
