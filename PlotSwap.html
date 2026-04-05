@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Plot Swap</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    #game-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    #controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    #scoreboard {
+      font-size: 0.95rem;
+    }
+
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 120px;
+      gap: 10px;
+    }
+
+    .tile {
+      background: #e0e0e0;
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 0.9rem;
+      cursor: grab;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 2px solid transparent;
+      transition: background 0.15s, border-color 0.15s, transform 0.1s;
+    }
+
+    .tile.correct {
+      background: #c8e6c9;
+      border-color: #2e7d32;
+    }
+
+    .tile.incorrect {
+      background: #ffcdd2;
+      border-color: #c62828;
+    }
+
+    .tile.dragging {
+      opacity: 0.6;
+      transform: scale(1.03);
+      cursor: grabbing;
+    }
+
+    .tile.drop-target {
+      outline: 2px dashed #1976d2;
+    }
+
+    #message {
+      margin-top: 15px;
+      font-weight: 600;
+    }
+
+    button {
+      padding: 6px 12px;
+      border-radius: 4px;
+      border: none;
+      background: #1976d2;
+      color: white;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    button:hover {
+      background: #1565c0;
+    }
+
+    select {
+      padding: 4px 8px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <h1>Plot Swap</h1>
+    <div id="controls">
+      <div>
+        <label for="level-select"><strong>Text / Level:</strong></label>
+        <select id="level-select"></select>
+        <button id="new-game-btn">New Game</button>
+      </div>
+      <div id="scoreboard">
+        <span id="correct-count">Correct: 0 / 12</span> |
+        <span id="swap-count">Swaps: 0</span>
+      </div>
+    </div>
+
+    <div id="grid"></div>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    // =========================
+    // DATA: LEVELS & EVENTS
+    // =========================
+    const LEVELS = [
+      {
+        id: "tkam-level1",
+        title: "To Kill a Mockingbird – Level 1",
+        events: [
+          "Scout and Jem meet Dill during the summer.",
+          "The children become fascinated with Boo Radley.",
+          "Scout starts school for the first time.",
+          "Jem loses his pants on the Radley fence.",
+          "Gifts begin to appear in the knothole of the tree.",
+          "Atticus agrees to defend Tom Robinson.",
+          "A mad dog appears and Atticus shoots it.",
+          "The children attend the trial in the coloured balcony.",
+          "Tom Robinson is found guilty.",
+          "Bob Ewell spits in Atticus’s face and threatens him.",
+          "Scout and Jem walk home from the Halloween pageant.",
+          "Boo Radley saves the children from Bob Ewell."
+        ]
+      }
+      // You can add more levels here – see template below.
+    ];
+
+    // =========================
+    // GAME STATE
+    // =========================
+    let currentLevel = null;
+    let correctOrder = [];   // array of event strings in correct order
+    let currentOrder = [];   // array of event strings in current (shuffled) order
+    let swapCount = 0;
+
+    // =========================
+    // INITIALISATION
+    // =========================
+    const levelSelect = document.getElementById("level-select");
+    const newGameBtn = document.getElementById("new-game-btn");
+    const grid = document.getElementById("grid");
+    const correctCountSpan = document.getElementById("correct-count");
+    const swapCountSpan = document.getElementById("swap-count");
+    const messageDiv = document.getElementById("message");
+
+    function initLevelSelect() {
+      LEVELS.forEach(level => {
+        const opt = document.createElement("option");
+        opt.value = level.id;
+        opt.textContent = level.title;
+        levelSelect.appendChild(opt);
+      });
+      currentLevel = LEVELS[0];
+    }
+
+    levelSelect.addEventListener("change", () => {
+      const selectedId = levelSelect.value;
+      currentLevel = LEVELS.find(l => l.id === selectedId) || LEVELS[0];
+      startNewGame();
+    });
+
+    newGameBtn.addEventListener("click", startNewGame);
+
+    // =========================
+    // GAME LOGIC
+    // =========================
+    function startNewGame() {
+      if (!currentLevel) return;
+      correctOrder = [...currentLevel.events];
+
+      // For now, always use all 12 events.
+      // Later you could randomly pick 12 from a larger list.
+      currentOrder = shuffleArray([...correctOrder]);
+
+      swapCount = 0;
+      updateScoreboard();
+      messageDiv.textContent = "";
+      renderGrid();
+    }
+
+    function shuffleArray(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function renderGrid() {
+      grid.innerHTML = "";
+      currentOrder.forEach((eventText, index) => {
+        const tile = document.createElement("div");
+        tile.className = "tile";
+        tile.draggable = true;
+        tile.textContent = eventText;
+        tile.dataset.index = index;
+
+        // Colouring based on correctness
+        if (eventText === correctOrder[index]) {
+          tile.classList.add("correct");
+        } else {
+          tile.classList.add("incorrect");
+        }
+
+        addDragHandlers(tile);
+        grid.appendChild(tile);
+      });
+
+      updateCorrectCount();
+    }
+
+    function updateCorrectCount() {
+      let correct = 0;
+      for (let i = 0; i < currentOrder.length; i++) {
+        if (currentOrder[i] === correctOrder[i]) correct++;
+      }
+      correctCountSpan.textContent = `Correct: ${correct} / ${correctOrder.length}`;
+      if (correct === correctOrder.length) {
+        messageDiv.textContent = `Well done! You completed the sequence in ${swapCount} swaps.`;
+      }
+    }
+
+    function updateScoreboard() {
+      swapCountSpan.textContent = `Swaps: ${swapCount}`;
+      updateCorrectCount();
+    }
+
+    // =========================
+    // DRAG & DROP HANDLERS
+    // =========================
+    let draggedIndex = null;
+
+    function addDragHandlers(tile) {
+      tile.addEventListener("dragstart", (e) => {
+        draggedIndex = parseInt(tile.dataset.index, 10);
+        tile.classList.add("dragging");
+        e.dataTransfer.effectAllowed = "move";
+      });
+
+      tile.addEventListener("dragend", () => {
+        tile.classList.remove("dragging");
+        draggedIndex = null;
+        clearDropTargets();
+      });
+
+      tile.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = "move";
+        tile.classList.add("drop-target");
+      });
+
+      tile.addEventListener("dragleave", () => {
+        tile.classList.remove("drop-target");
+      });
+
+      tile.addEventListener("drop", () => {
+        tile.classList.remove("drop-target");
+        const targetIndex = parseInt(tile.dataset.index, 10);
+        if (draggedIndex === null || draggedIndex === targetIndex) return;
+
+        // Swap events in currentOrder
+        [currentOrder[draggedIndex], currentOrder[targetIndex]] =
+          [currentOrder[targetIndex], currentOrder[draggedIndex]];
+
+        swapCount++;
+        updateScoreboard();
+        renderGrid();
+      });
+    }
+
+    function clearDropTargets() {
+      document.querySelectorAll(".tile.drop-target").forEach(t => {
+        t.classList.remove("drop-target");
+      });
+    }
+
+    // =========================
+    // START
+    // =========================
+    initLevelSelect();
+    startNewGame();
+  </script>
+</body>
+</html>
