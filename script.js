@@ -1,5 +1,5 @@
 // ------------------------------
-// EVENT POOLS
+// EVENT POOLS (unchanged)
 // ------------------------------
 
 const levelPools = {
@@ -19,7 +19,6 @@ const levelPools = {
   ],
 
   2: [
-    // Level 1 events
     "Scout starts school and meets Miss Caroline",
     "Jem touches the Radley house on a dare",
     "Walter Cunningham joins the Finches for lunch",
@@ -32,8 +31,6 @@ const levelPools = {
     "Jem reads to Mrs. Dubose",
     "Calpurnia takes the children to her church",
     "Aunt Alexandra arrives to stay with the Finches",
-
-    // Additional 6
     "Atticus sits outside the jail to protect Tom Robinson",
     "Scout diffuses the mob at the jail",
     "The trial begins in the courthouse",
@@ -43,7 +40,6 @@ const levelPools = {
   ],
 
   3: [
-    // Level 2 events
     "Scout starts school and meets Miss Caroline",
     "Jem touches the Radley house on a dare",
     "Walter Cunningham joins the Finches for lunch",
@@ -62,8 +58,6 @@ const levelPools = {
     "Mayella Ewell testifies against Tom",
     "Tom Robinson gives his testimony",
     "The jury delivers its verdict",
-
-    // Additional 6
     "Bob Ewell spits in Atticus's face",
     "Tom Robinson attempts escape",
     "Scout takes part in the Halloween pageant",
@@ -97,7 +91,6 @@ let currentCorrectOrder = [];
 function loadLevel(level) {
   const pool = levelPools[level];
 
-  // canonical order = first 12 events in the pool
   currentCorrectOrder = pool.slice(0, 12);
 
   const selected = pick12(pool);
@@ -120,7 +113,7 @@ function loadLevel(level) {
     board.appendChild(div);
   });
 
-  document.getElementById("result").textContent = "";
+  updateTileColours();
 }
 
 function dragStart(e) {
@@ -141,32 +134,26 @@ function drop(e) {
 
   board.insertBefore(tiles[fromIndex], tiles[toIndex]);
 
-  // update indices
   Array.from(board.children).forEach((tile, i) => {
     tile.dataset.index = i;
   });
+
+  updateTileColours();
 }
 
-function checkOrder() {
+function updateTileColours() {
   const tiles = Array.from(document.getElementById("gameBoard").children);
   const currentOrder = tiles.map(tile => tile.textContent);
 
   tiles.forEach(tile => tile.classList.remove("correct", "incorrect"));
-
-  let allCorrect = true;
 
   currentOrder.forEach((item, i) => {
     if (item === currentCorrectOrder[i]) {
       tiles[i].classList.add("correct");
     } else {
       tiles[i].classList.add("incorrect");
-      allCorrect = false;
     }
   });
-
-  document.getElementById("result").textContent =
-    allCorrect ? "Perfect! All events are in the correct order." :
-    "Some events are out of order — keep trying.";
 }
 
 // ------------------------------
@@ -181,8 +168,6 @@ document.getElementById("newSetBtn").addEventListener("click", () => {
   const level = document.getElementById("levelSelect").value;
   loadLevel(level);
 });
-
-document.getElementById("checkBtn").addEventListener("click", checkOrder);
 
 // Load Level 1 on startup
 loadLevel(1);
