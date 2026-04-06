@@ -148,16 +148,33 @@ function updateTileColours() {
   const tiles = Array.from(document.getElementById("gameBoard").children);
   const currentOrder = tiles.map(tile => tile.textContent);
 
+  let correctCount = 0;
+
   tiles.forEach(tile => tile.classList.remove("correct", "incorrect"));
 
   currentOrder.forEach((item, i) => {
     if (item === currentCorrectOrder[i]) {
       tiles[i].classList.add("correct");
+      correctCount++;
     } else {
       tiles[i].classList.add("incorrect");
     }
   });
+
+  // Update progress bar (if you added it)
+  const percent = (correctCount / 12) * 100;
+  const bar = document.getElementById("progressBar");
+  const text = document.getElementById("progressText");
+
+  if (bar) bar.style.width = percent + "%";
+  if (text) text.textContent = `${correctCount} / 12 correct`;
+
+  // Trigger confetti when perfect
+  if (correctCount === 12) {
+    launchConfetti();
+  }
 }
+
 
 // ------------------------------
 // EVENT LISTENERS
