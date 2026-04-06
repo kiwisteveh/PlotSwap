@@ -3,7 +3,22 @@ body {
   max-width: 900px;
   margin: auto;
   padding: 20px;
+
+  /* Parchment background */
+  background: linear-gradient(#f7f2e8, #efe7d8);
+  background-attachment: fixed;
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJuIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9IjAuOTUiIG51bU9jdGF2ZXM9IjEiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgc3R5bGU9ImZpbHRlcjogdXJsKCNuKTsiIGZpbGw9IiNmZmYiLz48L3N2Zz4=");
+  opacity: 0.25;
+  z-index: -1;
+}
+
 
 .title {
   text-align: center;
