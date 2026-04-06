@@ -59,13 +59,17 @@ body {
   background: #b7f7b0;
   border-color: #4caf50;
   color: #1b4d1b;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.7);
 }
+
 
 .tile.incorrect {
   background: #ffb3b3;
   border-color: #d9534f;
   color: #7a1f1f;
+  box-shadow: 0 0 10px rgba(217, 83, 79, 0.6);
 }
+
 
 
 button {
