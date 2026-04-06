@@ -47,6 +47,13 @@ body {
   user-select: none;
   transition: background 0.2s;
 }
+.tile {
+  transition: background 0.25s, transform 0.15s;
+}
+
+.tile:active {
+  transform: scale(0.97);
+}
 
 .tile.correct {
   background: #b7f7b0;
