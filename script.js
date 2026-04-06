@@ -4,7 +4,6 @@
 
 const levelPools = {
   1: [
-    // Level 1 — 12 events (early chapters)
     "Scout starts school and meets Miss Caroline",
     "Jem touches the Radley house on a dare",
     "Walter Cunningham joins the Finches for lunch",
@@ -20,7 +19,7 @@ const levelPools = {
   ],
 
   2: [
-    // Level 2 — 18 events (trial arc)
+    // Level 1 events
     "Scout starts school and meets Miss Caroline",
     "Jem touches the Radley house on a dare",
     "Walter Cunningham joins the Finches for lunch",
@@ -34,7 +33,7 @@ const levelPools = {
     "Calpurnia takes the children to her church",
     "Aunt Alexandra arrives to stay with the Finches",
 
-    // Additional 6 events
+    // Additional 6
     "Atticus sits outside the jail to protect Tom Robinson",
     "Scout diffuses the mob at the jail",
     "The trial begins in the courthouse",
@@ -44,7 +43,7 @@ const levelPools = {
   ],
 
   3: [
-    // Level 3 — 24 events (full novel arc)
+    // Level 2 events
     "Scout starts school and meets Miss Caroline",
     "Jem touches the Radley house on a dare",
     "Walter Cunningham joins the Finches for lunch",
@@ -64,7 +63,7 @@ const levelPools = {
     "Tom Robinson gives his testimony",
     "The jury delivers its verdict",
 
-    // Additional 6 events (climax + resolution)
+    // Additional 6
     "Bob Ewell spits in Atticus's face",
     "Tom Robinson attempts escape",
     "Scout takes part in the Halloween pageant",
@@ -80,14 +79,13 @@ const levelPools = {
 
 function shuffle(array) {
   return array
-    .map(value => ({ value, sort: Math.random() }))
+    .map(v => ({ v, sort: Math.random() }))
     .sort((a, b) => a.sort - b.sort)
-    .map(obj => obj.value);
+    .map(o => o.v);
 }
 
 function pick12(pool) {
-  const shuffled = shuffle(pool);
-  return shuffled.slice(0, 12);
+  return shuffle(pool).slice(0, 12);
 }
 
 // ------------------------------
@@ -98,7 +96,9 @@ let currentCorrectOrder = [];
 
 function loadLevel(level) {
   const pool = levelPools[level];
-  currentCorrectOrder = pool.slice(0, 12); // canonical sequence
+
+  // canonical order = first 12 events in the pool
+  currentCorrectOrder = pool.slice(0, 12);
 
   const selected = pick12(pool);
   const shuffled = shuffle(selected);
@@ -140,17 +140,33 @@ function drop(e) {
   const tiles = Array.from(board.children);
 
   board.insertBefore(tiles[fromIndex], tiles[toIndex]);
-  tiles.forEach((tile, i) => tile.dataset.index = i);
+
+  // update indices
+  Array.from(board.children).forEach((tile, i) => {
+    tile.dataset.index = i;
+  });
 }
 
 function checkOrder() {
   const tiles = Array.from(document.getElementById("gameBoard").children);
   const currentOrder = tiles.map(tile => tile.textContent);
 
-  const correct = currentOrder.every((item, i) => item === currentCorrectOrder[i]);
+  tiles.forEach(tile => tile.classList.remove("correct", "incorrect"));
+
+  let allCorrect = true;
+
+  currentOrder.forEach((item, i) => {
+    if (item === currentCorrectOrder[i]) {
+      tiles[i].classList.add("correct");
+    } else {
+      tiles[i].classList.add("incorrect");
+      allCorrect = false;
+    }
+  });
 
   document.getElementById("result").textContent =
-    correct ? "Correct order!" : "Not quite — try again.";
+    allCorrect ? "Perfect! All events are in the correct order." :
+    "Some events are out of order — keep trying.";
 }
 
 // ------------------------------
