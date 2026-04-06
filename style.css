@@ -1,20 +1,65 @@
 body {
   font-family: Arial, sans-serif;
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
   padding: 20px;
 }
 
+.title {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  text-align: center;
+  margin-top: 0;
+  font-weight: normal;
+  color: #444;
+}
+
+.instructions {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+/* Desktop grid: 4×3 */
 .board {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
   margin: 20px 0;
 }
 
+/* Phone layout: 2×6 */
+@media (max-width: 600px) {
+  .board {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .tile {
-  padding: 10px;
+  padding: 12px;
   background: #f0f0f0;
-  border: 1px solid #ccc;
+  border: 1px solid #bbb;
+  border-radius: 6px;
   cursor: grab;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.tile.correct {
+  background: #c8f7c5; /* green */
+  border-color: #6ac96a;
+}
+
+.tile.incorrect {
+  background: #f7c5c5; /* red */
+  border-color: #d66;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
 }
