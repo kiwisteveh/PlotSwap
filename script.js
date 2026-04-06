@@ -116,8 +116,10 @@ function loadLevel(level) {
   updateTileColours();
 }
 
+let draggedTile = null;
+
 function dragStart(e) {
-  e.dataTransfer.setData("text/plain", e.target.dataset.index);
+  draggedTile = e.target;
 }
 
 function dragOver(e) {
@@ -126,17 +128,18 @@ function dragOver(e) {
 
 function drop(e) {
   e.preventDefault();
-  const fromIndex = e.dataTransfer.getData("text/plain");
-  const toIndex = e.target.dataset.index;
+  const targetTile = e.target;
 
-  const board = document.getElementById("gameBoard");
-  const tiles = Array.from(board.children);
+  if (!draggedTile || !targetTile || !targetTile.classList.contains("tile")) {
+    return;
+  }
 
-  board.insertBefore(tiles[fromIndex], tiles[toIndex]);
+  // Swap the text content of the two tiles
+  const tempText = draggedTile.textContent;
+  draggedTile.textContent = targetTile.textContent;
+  targetTile.textContent = tempText;
 
-  Array.from(board.children).forEach((tile, i) => {
-    tile.dataset.index = i;
-  });
+  draggedTile = null;
 
   updateTileColours();
 }
