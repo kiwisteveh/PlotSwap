@@ -22,6 +22,10 @@ body {
   font-style: italic;
   margin-bottom: 20px;
 }
+.tile:active {
+  transition: none !important;
+  box-shadow: none !important;
+}
 
 /* Desktop grid: 4×3 */
 .board {
