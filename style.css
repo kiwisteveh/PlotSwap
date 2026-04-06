@@ -59,20 +59,25 @@ body::before {
 
 .tile {
   padding: 12px;
-  background: #f0f0f0;
+  background: linear-gradient(#fafafa, #f0f0f0);
   border: 1px solid #bbb;
   border-radius: 6px;
   cursor: grab;
   user-select: none;
-  transition: background 0.2s;
-}
-.tile {
-  transition: background 0.25s, transform 0.15s;
+
+  /* Subtle texture */
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNCIgaGVpZ2h0PSI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuMDUiLz48L3N2Zz4=");
+  background-blend-mode: multiply;
+
+  transition: background 0.25s, transform 0.15s, box-shadow 0.25s;
 }
 
 .tile:active {
   transform: scale(0.97);
+  transition: none !important;
+  box-shadow: none !important;
 }
+
 
 .tile.correct {
   background: #b7f7b0;
