@@ -104,7 +104,7 @@ function loadLevel(level) {
     div.className = "tile";
     div.draggable = true;
     div.textContent = text;
-    div.dataset.index = index;
+    
 
     div.addEventListener("dragstart", dragStart);
     div.addEventListener("dragover", dragOver);
