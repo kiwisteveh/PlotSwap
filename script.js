@@ -171,3 +171,22 @@ document.getElementById("newSetBtn").addEventListener("click", () => {
 
 // Load Level 1 on startup
 loadLevel(1);
+function launchConfetti() {
+  const duration = 1200;
+  const end = Date.now() + duration;
+
+  (function frame() {
+    // Create a single confetti particle
+    const particle = document.createElement("div");
+    particle.className = "confetti";
+    particle.style.left = Math.random() * 100 + "vw";
+    particle.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 60%)`;
+    document.body.appendChild(particle);
+
+    setTimeout(() => particle.remove(), 1200);
+
+    if (Date.now() < end) {
+      requestAnimationFrame(frame);
+    }
+  })();
+}
