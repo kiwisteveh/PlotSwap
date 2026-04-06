@@ -91,20 +91,25 @@ let currentCorrectOrder = [];
 function loadLevel(level) {
   const pool = levelPools[level];
 
-  currentCorrectOrder = pool.slice(0, 12);
-
+  // Step 1: pick 12 random events
   const selected = pick12(pool);
+
+  // Step 2: determine the correct order for THESE 12
+  currentCorrectOrder = [...selected].sort(
+    (a, b) => pool.indexOf(a) - pool.indexOf(b)
+  );
+
+  // Step 3: shuffle for display
   const shuffled = shuffle(selected);
 
   const board = document.getElementById("gameBoard");
   board.innerHTML = "";
 
-  shuffled.forEach((text, index) => {
+  shuffled.forEach(text => {
     const div = document.createElement("div");
     div.className = "tile";
     div.draggable = true;
     div.textContent = text;
-    
 
     div.addEventListener("dragstart", dragStart);
     div.addEventListener("dragover", dragOver);
