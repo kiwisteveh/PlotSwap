@@ -49,14 +49,17 @@ body {
 }
 
 .tile.correct {
-  background: #c8f7c5; /* green */
-  border-color: #6ac96a;
+  background: #b7f7b0;
+  border-color: #4caf50;
+  color: #1b4d1b;
 }
 
 .tile.incorrect {
-  background: #f7c5c5; /* red */
-  border-color: #d66;
+  background: #ffb3b3;
+  border-color: #d9534f;
+  color: #7a1f1f;
 }
+
 
 button {
   margin-top: 10px;
