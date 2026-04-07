@@ -180,6 +180,9 @@ function updateTileColours() {
     launchConfetti();
    winSound.play();
     document.getElementById("winBanner").classList.add("show");
+setTimeout(() => {
+  document.getElementById("winBanner").classList.remove("show");
+}, 4000);
 
 
 
