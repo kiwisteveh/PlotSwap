@@ -179,6 +179,8 @@ function updateTileColours() {
   if (correctCount === 12) {
     launchConfetti();
    winSound.play();
+    document.getElementById("winBanner").classList.add("show");
+
 
 
   }
