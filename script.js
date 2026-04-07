@@ -1,6 +1,7 @@
 // ------------------------------
 // EVENT POOLS (unchanged)
 // ------------------------------
+const winSound = new Audio("ding.mp3");
 
 const levelPools = {
   1: [
@@ -180,7 +181,8 @@ function updateTileColours() {
   // Trigger confetti when perfect
   if (correctCount === 12) {
     launchConfetti();
-    winSound.play();
+   winSound.play();
+
 
   }
 }
