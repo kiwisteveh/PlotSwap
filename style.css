@@ -4,6 +4,7 @@ body {
   margin: auto;
   padding: 20px;
 
+  
   /* Stronger parchment base */
   background: radial-gradient(circle at center,
       #f8f1df 0%,
