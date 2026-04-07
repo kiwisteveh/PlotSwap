@@ -7,6 +7,9 @@ html {
    BODY + PAGE FRAME
    =========================== */
 body {
+  
+  margin-top: 60px; /* adjust to taste */
+
   font-family: Arial, sans-serif;
   max-width: 900px;
   margin: auto;
