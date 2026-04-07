@@ -3,6 +3,16 @@ body {
   max-width: 900px;
   margin: auto;
   padding: 20px;
+/* Storybook page frame */
+body {
+    border: 18px solid rgba(60, 40, 20, 0.35); /* warm brown frame */
+    box-shadow:
+        0 0 0 6px rgba(255, 245, 225, 0.6),   /* inner light edge */
+        0 0 0 12px rgba(60, 40, 20, 0.25),    /* mid shadow */
+        0 0 25px rgba(0, 0, 0, 0.35);         /* outer vignette */
+    padding: 20px;
+    box-sizing: border-box;
+}
 
   
   /* Stronger parchment base */
