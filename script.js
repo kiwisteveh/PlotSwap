@@ -71,9 +71,6 @@ const levelPools = {
 // ------------------------------
 // UTILITY FUNCTIONS
 // ------------------------------
-const winSound = new Audio(
-  "data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA="
-);
 
 function shuffle(array) {
   return array
