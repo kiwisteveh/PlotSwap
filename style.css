@@ -1,20 +1,20 @@
+/* ===========================
+   BODY + PAGE FRAME
+   =========================== */
 body {
   font-family: Arial, sans-serif;
   max-width: 900px;
   margin: auto;
   padding: 20px;
-/* Storybook page frame */
-body {
-    border: 18px solid rgba(60, 40, 20, 0.35); /* warm brown frame */
-    box-shadow:
-        0 0 0 6px rgba(255, 245, 225, 0.6),   /* inner light edge */
-        0 0 0 12px rgba(60, 40, 20, 0.25),    /* mid shadow */
-        0 0 25px rgba(0, 0, 0, 0.35);         /* outer vignette */
-    padding: 20px;
-    box-sizing: border-box;
-}
 
-  
+  /* Storybook page frame */
+  border: 18px solid rgba(60, 40, 20, 0.35);
+  box-shadow:
+      0 0 0 6px rgba(255, 245, 225, 0.6),
+      0 0 0 12px rgba(60, 40, 20, 0.25),
+      0 0 25px rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+
   /* Stronger parchment base */
   background: radial-gradient(circle at center,
       #f8f1df 0%,
@@ -36,8 +36,9 @@ body::before {
   opacity: 0.35;
 }
 
-
-
+/* ===========================
+   TITLES + TEXT
+   =========================== */
 .title {
   text-align: center;
   margin-bottom: 5px;
@@ -55,17 +56,73 @@ body::before {
   font-style: italic;
   margin-bottom: 20px;
 }
-.tile:active {
-  transition: none !important;
-  box-shadow: none !important;
+
+/* ===========================
+   STORYBOOK TILES
+   =========================== */
+.tile {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid rgba(80, 50, 30, 0.5);
+  border-radius: 6px;
+  cursor: grab;
+  user-select: none;
+
+  box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.25),
+      inset 0 0 6px rgba(255, 255, 255, 0.6);
+
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 
-/* Desktop grid: 4×3 */
+.tile:hover {
+  transform: translateY(-2px);
+  box-shadow:
+      0 4px 10px rgba(0, 0, 0, 0.3),
+      inset 0 0 6px rgba(255, 255, 255, 0.6);
+}
+
+.tile:active {
+  transform: scale(0.97);
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+/* Correct / incorrect states */
+.tile.correct {
+  background: #b7f7b0;
+  border-color: #4caf50;
+  color: #1b4d1b;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.7);
+}
+
+.tile.incorrect {
+  background: #ffb3b3;
+  border-color: #d9534f;
+  color: #7a1f1f;
+  box-shadow: 0 0 10px rgba(217, 83, 79, 0.6);
+}
+
+/* ===========================
+   STORYBOOK PANEL (THE BOARD)
+   =========================== */
 .board {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   margin: 20px 0;
+  padding: 24px;
+
+  background: rgba(255, 248, 230, 0.88);
+  border: 2px solid rgba(80, 50, 30, 0.45);
+  border-radius: 12px;
+
+  box-shadow:
+      0 3px 8px rgba(0, 0, 0, 0.25),
+      inset 0 0 14px rgba(255, 255, 255, 0.5),
+      inset 0 0 25px rgba(80, 50, 30, 0.15);
+
+  backdrop-filter: blur(2px);
 }
 
 /* Phone layout: 2×6 */
@@ -75,43 +132,9 @@ body::before {
   }
 }
 
-.tile {
-  padding: 12px;
-  background: linear-gradient(#faf6eb, #f0e6d2);
-  border: 1px solid #c8b89a;
-  border-radius: 6px;
-  cursor: grab;
-  user-select: none;
-
-  /* Stronger texture */
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNCIgaGVpZ2h0PSI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuMSIvPjwvc3ZnPg==");
-  background-blend-mode: multiply;
-
-  transition: background 0.25s, transform 0.15s, box-shadow 0.25s;
-}
-
-.tile:active {
-  transform: scale(0.97);
-  transition: none !important;
-  box-shadow: none !important;
-}
-
-
-
-.tile.correct {
-  background: #b7f7b0;
-  border-color: #4caf50;
-  color: #1b4d1b;
-  box-shadow: 0 0 10px rgba(76, 175, 80, 0.7);
-}
-
-
-.tile.incorrect {
-  background: #ffb3b3;
-  border-color: #d9534f;
-  color: #7a1f1f;
-  box-shadow: 0 0 10px rgba(217, 83, 79, 0.6);
-}
+/* ===========================
+   PROGRESS BAR
+   =========================== */
 #progressContainer {
   width: 100%;
   height: 20px;
@@ -133,32 +156,19 @@ body::before {
   font-weight: bold;
   margin-bottom: 10px;
 }
-.board {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin: 20px 0;
-  padding: 24px;
 
-  background: rgba(255, 248, 230, 0.85); /* warm cream */
-  border: 1px solid #d8c9a7;
-  border-radius: 12px;
-
-  box-shadow:
-    0 4px 12px rgba(0,0,0,0.15),
-    inset 0 0 12px rgba(0,0,0,0.08);
-
-  backdrop-filter: blur(2px);
-}
-
-
-
-
+/* ===========================
+   BUTTONS
+   =========================== */
 button {
   margin-top: 10px;
   padding: 10px 15px;
   cursor: pointer;
 }
+
+/* ===========================
+   CONFETTI
+   =========================== */
 .confetti {
   position: fixed;
   top: -10px;
