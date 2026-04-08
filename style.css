@@ -7,7 +7,7 @@ html {
    =========================== */
 #pageFrame {
   max-width: 900px;
-  margin: 120px auto 40px; /* moves whole page down */
+  margin: 70px auto 40px; /* moves whole page down */
   padding: 20px;
 
   /* Storybook page frame */
