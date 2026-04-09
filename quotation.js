@@ -321,3 +321,83 @@ const quotes = [
   }
 
 ];
+// -------------------------------
+// Quotation Quiz Game Engine
+// -------------------------------
+
+let currentIndex = 0;
+let score = 0;
+let shuffledQuotes = [];
+let acceptingAnswers = true;
+
+function shuffle(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
+function startQuiz() {
+  shuffledQuotes = shuffle([...quotes]);
+  currentIndex = 0;
+  score = 0;
+  showQuestion();
+}
+
+function showQuestion() {
+  const q = shuffledQuotes[currentIndex];
+
+  document.getElementById("quoteText").textContent = q.text;
+
+  const optionsContainer = document.getElementById("optionsContainer");
+  optionsContainer.innerHTML = "";
+
+  const shuffledOptions = shuffle([...q.options]);
+
+  shuffledOptions.forEach(option => {
+    const btn = document.createElement("button");
+    btn.textContent = option;
+    btn.onclick = () => selectAnswer(option, q.speaker);
+    optionsContainer.appendChild(btn);
+  });
+
+  document.getElementById("hintText").classList.add("hidden");
+  document.getElementById("hintText").textContent = q.hint;
+
+  updateProgress();
+}
+
+function selectAnswer(selected, correct) {
+  if (!acceptingAnswers) return;
+  acceptingAnswers = false;
+
+  if (selected === correct) {
+    score++;
+  }
+
+  setTimeout(() => {
+    currentIndex++;
+    if (currentIndex < shuffledQuotes.length) {
+      acceptingAnswers = true;
+      showQuestion();
+    } else {
+      showResults();
+    }
+  }, 500);
+}
+
+function updateProgress() {
+  const progress = (currentIndex / shuffledQuotes.length) * 100;
+  document.getElementById("progressFill").style.width = progress + "%";
+}
+
+function showResults() {
+  document.getElementById("quizContainer").classList.add("hidden");
+  document.getElementById("resultScreen").classList.remove("hidden");
+
+  document.getElementById("finalScore").textContent =
+    `${score} out of ${shuffledQuotes.length}`;
+}
+
+document.getElementById("hintButton").onclick = () => {
+  document.getElementById("hintText").classList.remove("hidden");
+};
+
+startQuiz();
