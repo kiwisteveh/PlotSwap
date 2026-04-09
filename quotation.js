@@ -368,19 +368,35 @@ function selectAnswer(selected, correct) {
   if (!acceptingAnswers) return;
   acceptingAnswers = false;
 
-  if (selected === correct) {
-    score++;
-  }
+  const optionButtons = document.querySelectorAll("#optionsContainer button");
+
+  optionButtons.forEach(btn => {
+    if (btn.textContent === selected) {
+      if (selected === correct) {
+        btn.classList.add("correct");
+        score++;
+      } else {
+        btn.classList.add("incorrect");
+      }
+    }
+
+    // Highlight the correct answer too (optional)
+    if (btn.textContent === correct) {
+      btn.classList.add("correct");
+    }
+  });
 
   setTimeout(() => {
     currentIndex++;
+    optionButtons.forEach(btn => btn.classList.remove("correct", "incorrect"));
+
     if (currentIndex < shuffledQuotes.length) {
       acceptingAnswers = true;
       showQuestion();
     } else {
       showResults();
     }
-  }, 500);
+  }, 600);
 }
 
 function updateProgress() {
