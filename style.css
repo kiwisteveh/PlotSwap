@@ -224,6 +224,18 @@ button:active {
     0 1px 2px rgba(0,0,0,0.2),
     inset 0 0 4px rgba(0,0,0,0.25);
 }
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 300px;
+  margin: 40px auto;
+}
+
+.menu-buttons button {
+  font-size: 20px;
+  padding: 14px 20px;
+}
 
 /* ===========================
    CONFETTI
