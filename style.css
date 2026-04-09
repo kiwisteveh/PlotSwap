@@ -237,6 +237,11 @@ button:active {
   padding: 14px 20px;
 }
 
+.return-button {
+  position: relative;
+  z-index: 2;
+}
+
 /* ===========================
    CONFETTI
    =========================== */
