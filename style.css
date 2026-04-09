@@ -260,3 +260,62 @@ button:active {
     transform: translateY(100vh) rotate(720deg);
   }
 }
+#quoteBox {
+  margin: 20px auto;
+  padding: 20px;
+  background: #fdf7e3;
+  border: 2px solid #d6c7a1;
+  border-radius: 8px;
+  max-width: 600px;
+  font-size: 20px;
+  text-align: center;
+}
+
+#optionsContainer button {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 10px auto;
+  font-size: 18px;
+}
+
+#hintButton {
+  margin-top: 20px;
+}
+
+#hintText {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.hidden {
+  display: none;
+}
+
+#progressBar {
+  width: 100%;
+  max-width: 400px;
+  height: 12px;
+  background: #e0d4b8;
+  margin: 20px auto;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#progressFill {
+  height: 100%;
+  width: 0%;
+  background: #b08a3c;
+  transition: width 0.3s ease;
+}
+
+#resultScreen {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.return-button {
+  margin-top: 40px;
+  position: relative;
+  z-index: 5;
+}
