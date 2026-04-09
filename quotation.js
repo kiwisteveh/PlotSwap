@@ -386,18 +386,18 @@ function selectAnswer(selected, correct) {
     }
   });
 
-  setTimeout(() => {
-    currentIndex++;
-    optionButtons.forEach(btn => btn.classList.remove("correct", "incorrect"));
+ setTimeout(() => {
+  currentIndex++;
+  optionButtons.forEach(btn => btn.classList.remove("correct", "incorrect"));
 
-    if (currentIndex < shuffledQuotes.length) {
-      acceptingAnswers = true;
-      showQuestion();
-    } else {
-      showResults();
-    }
-  }, 600);
-}
+  if (currentIndex < shuffledQuotes.length) {
+    acceptingAnswers = true;
+    showQuestion();
+  } else {
+    showResults();
+  }
+}, 900); // was 600
+
 
 function updateProgress() {
   const progress = (currentIndex / shuffledQuotes.length) * 100;
