@@ -27,14 +27,17 @@ html {
   position: relative; /* needed for ::before grain */
 }
 .correct {
-  background-color: #7fbf7f !important;
-  color: #fff !important;
+  background: #4caf50 !important;
+  border-color: #3e8e41 !important;
+  color: white !important;
 }
 
 .incorrect {
-  background-color: #d67a7a !important;
-  color: #fff !important;
+  background: #d9534f !important;
+  border-color: #b52b27 !important;
+  color: white !important;
 }
+
 
 /* Stronger paper grain overlay */
 #pageFrame::before {
