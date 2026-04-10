@@ -1,12 +1,12 @@
 // -------------------------------
-// Quotation Quiz Data
+// Quotation Quiz Data (ASCII only)
 // -------------------------------
 
 const quotes = [
 
   // --- ATTICUS (12) ---
   {
-    text: "Sometimes doing what's right means standing alone.",
+    text: "Sometimes doing what is right means standing alone.",
     speaker: "Atticus",
     options: ["Atticus", "Scout", "Jem", "Miss Maudie"],
     hint: "This character often speaks about moral courage."
@@ -18,13 +18,13 @@ const quotes = [
     hint: "A lesson about empathy."
   },
   {
-    text: "Courage isn't a man with a gun; it's knowing you're beaten but beginning anyway.",
+    text: "Courage is not a man with a gun; it is knowing you are beaten but beginning anyway.",
     speaker: "Atticus",
     options: ["Atticus", "Jem", "Scout", "Tom Robinson"],
     hint: "This character redefines bravery for the children."
   },
   {
-    text: "The truth doesn't change just because people refuse to see it.",
+    text: "The truth does not change just because people refuse to see it.",
     speaker: "Atticus",
     options: ["Atticus", "Miss Maudie", "Aunt Alexandra", "Jem"],
     hint: "This speaker values honesty above comfort."
@@ -48,7 +48,7 @@ const quotes = [
     hint: "A moral lesson for his children."
   },
   {
-    text: "It's never an insult to be called what someone thinks is a bad name.",
+    text: "It is never an insult to be called what someone thinks is a bad name.",
     speaker: "Atticus",
     options: ["Atticus", "Scout", "Jem", "Calpurnia"],
     hint: "This speaker teaches resilience."
@@ -60,7 +60,7 @@ const quotes = [
     hint: "A statement about personal integrity."
   },
   {
-    text: "People fear what they don't understand.",
+    text: "People fear what they do not understand.",
     speaker: "Atticus",
     options: ["Atticus", "Scout", "Boo Radley", "Dill"],
     hint: "This character often explains prejudice."
@@ -72,7 +72,7 @@ const quotes = [
     hint: "This speaker defends someone unfairly accused."
   },
   {
-    text: "You can't hold a child responsible for the sins of their community.",
+    text: "You cannot hold a child responsible for the sins of their community.",
     speaker: "Atticus",
     options: ["Atticus", "Calpurnia", "Miss Maudie", "Aunt Alexandra"],
     hint: "A reminder about innocence."
@@ -86,7 +86,7 @@ const quotes = [
     hint: "This speaker is young and observant."
   },
   {
-    text: "The world didn’t make sense to me, but I was determined to understand it.",
+    text: "The world did not make sense to me, but I was determined to understand it.",
     speaker: "Scout",
     options: ["Scout", "Jem", "Atticus", "Miss Maudie"],
     hint: "This character narrates the story."
@@ -98,7 +98,7 @@ const quotes = [
     hint: "This character is impulsive but honest."
   },
   {
-    text: "I didn’t see why people cared so much about who belonged where.",
+    text: "I did not see why people cared so much about who belonged where.",
     speaker: "Scout",
     options: ["Scout", "Aunt Alexandra", "Jem", "Miss Maudie"],
     hint: "This speaker questions social rules."
@@ -116,7 +116,7 @@ const quotes = [
     hint: "This speaker resists traditional expectations."
   },
   {
-    text: "I didn’t understand why people hated others they’d never met.",
+    text: "I did not understand why people hated others they had never met.",
     speaker: "Scout",
     options: ["Scout", "Jem", "Atticus", "Dill"],
     hint: "This character questions prejudice."
@@ -128,7 +128,7 @@ const quotes = [
     hint: "This speaker notices everything."
   },
   {
-    text: "I wasn’t afraid of the dark, just the things people imagined in it.",
+    text: "I was not afraid of the dark, just the things people imagined in it.",
     speaker: "Scout",
     options: ["Scout", "Jem", "Dill", "Boo Radley"],
     hint: "This character grows braver over time."
@@ -148,13 +148,13 @@ const quotes = [
     hint: "This character loses innocence during the trial."
   },
   {
-    text: "Growing up meant learning things I didn’t want to know.",
+    text: "Growing up meant learning things I did not want to know.",
     speaker: "Jem",
     options: ["Jem", "Scout", "Dill", "Atticus"],
     hint: "This speaker matures painfully."
   },
   {
-    text: "Sometimes you have to face something even when you’re terrified.",
+    text: "Sometimes you have to face something even when you are terrified.",
     speaker: "Jem",
     options: ["Jem", "Scout", "Atticus", "Dill"],
     hint: "This character tries to be brave."
@@ -166,7 +166,7 @@ const quotes = [
     hint: "This speaker struggles with disappointment."
   },
   {
-    text: "I couldn’t understand how a jury could ignore the truth.",
+    text: "I could not understand how a jury could ignore the truth.",
     speaker: "Jem",
     options: ["Jem", "Atticus", "Scout", "Tom Robinson"],
     hint: "This character is devastated by the verdict."
@@ -178,7 +178,7 @@ const quotes = [
     hint: "This speaker grows up quickly."
   },
   {
-    text: "I tried to protect Scout, even when I didn’t know how.",
+    text: "I tried to protect Scout, even when I did not know how.",
     speaker: "Jem",
     options: ["Jem", "Atticus", "Dill", "Calpurnia"],
     hint: "This character feels responsible for his sibling."
@@ -198,243 +198,4 @@ const quotes = [
     hint: "This character teaches the children about dignity."
   },
   {
-    text: "You behave the same way in every house — with kindness.",
-    speaker: "Calpurnia",
-    options: ["Calpurnia", "Atticus", "Miss Maudie", "Aunt Alexandra"],
-    hint: "This speaker sets high expectations."
-  },
-  {
-    text: "People will judge you, but you don’t have to accept their judgment.",
-    speaker: "Calpurnia",
-    options: ["Calpurnia", "Miss Maudie", "Scout", "Aunt Alexandra"],
-    hint: "This character faces prejudice with strength."
-  },
-  {
-    text: "Sometimes you have to speak firmly for someone’s own good.",
-    speaker: "Calpurnia",
-    options: ["Calpurnia", "Atticus", "Aunt Alexandra", "Miss Maudie"],
-    hint: "This character keeps the household in order."
-  },
-  {
-    text: "Respect is something you give freely, not something you demand.",
-    speaker: "Calpurnia",
-    options: ["Calpurnia", "Atticus", "Miss Maudie", "Scout"],
-    hint: "This speaker models humility."
-  },
-
-  // --- MISS MAUDIE (5) ---
-  {
-    text: "Some people spread bitterness, but you don’t have to join them.",
-    speaker: "Miss Maudie",
-    options: ["Miss Maudie", "Atticus", "Calpurnia", "Scout"],
-    hint: "This character offers gentle wisdom."
-  },
-  {
-    text: "A person’s goodness isn’t measured by their reputation.",
-    speaker: "Miss Maudie",
-    options: ["Miss Maudie", "Atticus", "Aunt Alexandra", "Jem"],
-    hint: "This speaker sees through hypocrisy."
-  },
-  {
-    text: "The world is full of ugly things, but there’s beauty too.",
-    speaker: "Miss Maudie",
-    options: ["Miss Maudie", "Scout", "Calpurnia", "Atticus"],
-    hint: "This character loves her garden."
-  },
-  {
-    text: "People cling to old ideas even when they hurt others.",
-    speaker: "Miss Maudie",
-    options: ["Miss Maudie", "Atticus", "Aunt Alexandra", "Calpurnia"],
-    hint: "This speaker critiques the town’s traditions."
-  },
-  {
-    text: "Children often see the truth adults try to hide.",
-    speaker: "Miss Maudie",
-    options: ["Miss Maudie", "Atticus", "Scout", "Jem"],
-    hint: "This character respects the children’s insight."
-  },
-
-  // --- AUNT ALEXANDRA (3) ---
-  {
-    text: "A family’s reputation is a fragile thing.",
-    speaker: "Aunt Alexandra",
-    options: ["Aunt Alexandra", "Miss Maudie", "Calpurnia", "Atticus"],
-    hint: "This character cares deeply about heritage."
-  },
-  {
-    text: "There are standards you’re expected to uphold.",
-    speaker: "Aunt Alexandra",
-    options: ["Aunt Alexandra", "Atticus", "Calpurnia", "Miss Maudie"],
-    hint: "This speaker values propriety."
-  },
-  {
-    text: "Being a lady means more than wearing a dress.",
-    speaker: "Aunt Alexandra",
-    options: ["Aunt Alexandra", "Scout", "Miss Maudie", "Calpurnia"],
-    hint: "This character tries to teach femininity."
-  },
-
-  // --- DILL (3) ---
-  {
-    text: "I liked imagining things better than the way they really were.",
-    speaker: "Dill",
-    options: ["Dill", "Scout", "Jem", "Boo Radley"],
-    hint: "This character is imaginative and sensitive."
-  },
-  {
-    text: "Sometimes running away felt easier than facing the truth.",
-    speaker: "Dill",
-    options: ["Dill", "Scout", "Jem", "Atticus"],
-    hint: "This speaker struggles with home life."
-  },
-  {
-    text: "I couldn’t stand seeing someone treated unfairly.",
-    speaker: "Dill",
-    options: ["Dill", "Jem", "Scout", "Tom Robinson"],
-    hint: "This character cries during the trial."
-  },
-
-  // --- TOM ROBINSON (2) ---
-  {
-    text: "Telling the truth shouldn’t cost a man everything.",
-    speaker: "Tom Robinson",
-    options: ["Tom Robinson", "Atticus", "Jem", "Heck Tate"],
-    hint: "This character is falsely accused."
-  },
-  {
-    text: "Sometimes doing a kindness leads to trouble you never expected.",
-    speaker: "Tom Robinson",
-    options: ["Tom Robinson", "Atticus", "Calpurnia", "Boo Radley"],
-    hint: "This speaker helped someone out of compassion."
-  },
-
-  // --- BOO RADLEY (1) ---
-  {
-    text: "You can watch people for years and still not know their hearts.",
-    speaker: "Boo Radley",
-    options: ["Boo Radley", "Atticus", "Scout", "Dill"],
-    hint: "This character observes from a distance."
-  },
-
-  // --- HECK TATE (1) ---
-  {
-    text: "Sometimes justice means protecting the innocent from harm.",
-    speaker: "Heck Tate",
-    options: ["Heck Tate", "Atticus", "Judge Taylor", "Tom Robinson"],
-    hint: "This speaker makes a difficult decision at the end."
-  }
-
-];
-
-// -------------------------------
-// Quotation Quiz Game Engine
-// -------------------------------
-
-let currentIndex = 0;
-let score = 0;
-let shuffledQuotes = [];
-let acceptingAnswers = true;
-
-function shuffle(array) {
-  return array.sort(() => Math.random() - 0.5);
-}
-
-function startQuiz() {
-  shuffledQuotes = shuffle([...quotes]);
-  currentIndex = 0;
-  score = 0;
-  showQuestion();
-}
-
-function showQuestion() {
-  const q = shuffledQuotes[currentIndex];
-
-  const quoteText = document.getElementById("quoteText");
-  if (!q) {
-    quoteText.textContent = "No questions available.";
-    return;
-  }
-
-  quoteText.textContent = q.text;
-
-  const optionsContainer = document.getElementById("optionsContainer");
-  optionsContainer.innerHTML = "";
-
-  const shuffledOptions = shuffle([...q.options]);
-
-  shuffledOptions.forEach(option => {
-    const btn = document.createElement("button");
-    btn.textContent = option;
-    btn.onclick = () => selectAnswer(option, q.speaker);
-    optionsContainer.appendChild(btn);
-  });
-
-  const hintText = document.getElementById("hintText");
-  hintText.classList.add("hidden");
-  hintText.textContent = q.hint;
-
-  updateProgress();
-}
-
-function selectAnswer(selected, correct) {
-  if (!acceptingAnswers) return;
-  acceptingAnswers = false;
-
-  const optionButtons = document.querySelectorAll("#optionsContainer button");
-
-  optionButtons.forEach(btn => {
-    if (btn.textContent === selected) {
-      if (selected === correct) {
-        btn.classList.add("correct");
-        score++;
-      } else {
-        btn.classList.add("incorrect");
-      }
-    }
-    if (btn.textContent === correct) {
-      btn.classList.add("correct");
-    }
-  });
-
-  setTimeout(() => {
-    currentIndex++;
-    optionButtons.forEach(btn => btn.classList.remove("correct", "incorrect"));
-
-    if (currentIndex < shuffledQuotes.length) {
-      acceptingAnswers = true;
-      showQuestion();
-    } else {
-      showResults();
-    }
-  }, 700);
-}
-
-function updateProgress() {
-  const progress = (currentIndex / shuffledQuotes.length) * 100;
-  const fill = document.getElementById("progressFill");
-  if (fill) {
-    fill.style.width = progress + "%";
-  }
-}
-
-function showResults() {
-  const quizContainer = document.getElementById("quizContainer");
-  const resultScreen = document.getElementById("resultScreen");
-  const finalScore = document.getElementById("finalScore");
-
-  if (quizContainer) quizContainer.classList.add("hidden");
-  if (resultScreen) resultScreen.classList.remove("hidden");
-  if (finalScore) {
-    finalScore.textContent = `${score} out of ${shuffledQuotes.length}`;
-  }
-}
-
-const hintButton = document.getElementById("hintButton");
-if (hintButton) {
-  hintButton.onclick = () => {
-    const hintText = document.getElementById("hintText");
-    if (hintText) hintText.classList.remove("hidden");
-  };
-}
-
-startQuiz();
+    text
