@@ -363,3 +363,81 @@ button:active {
 .hidden {
   display: none;
 }
+/* ===========================
+   QUIZ CONTAINER LAYOUT
+   =========================== */
+.quiz-container {
+  background: rgba(255, 248, 230, 0.85); /* soft parchment tint */
+  border: 2px solid #8b6f47;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+  margin-bottom: 30px;
+}
+
+/* ===========================
+   QUOTE BOX (Option B style)
+   =========================== */
+.quote-text {
+  background: #f7f0df;
+  border: 2px solid #b89a6a;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  line-height: 1.4;
+  border-radius: 6px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.25);
+}
+
+/* ===========================
+   OPTIONS LAYOUT
+   =========================== */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.options-container button {
+  padding: 10px 14px;
+  font-size: 16px;
+  background: #e8dcc2;
+  border: 2px solid #8b6f47;
+  cursor: pointer;
+  border-radius: 6px;
+  text-align: left;
+}
+
+.options-container button.correct {
+  background: #b6e3a8;
+  border-color: #4a7f3b;
+}
+
+.options-container button.incorrect {
+  background: #e8a8a8;
+  border-color: #7f3b3b;
+}
+
+/* ===========================
+   HINT TEXT
+   =========================== */
+.hint-text {
+  margin-top: 10px;
+  padding: 10px;
+  background: #fff7d6;
+  border: 1px solid #c9a85b;
+  border-radius: 6px;
+}
+
+/* ===========================
+   RESULT SCREEN
+   =========================== */
+.result-screen {
+  background: rgba(255, 248, 230, 0.9);
+  border: 2px solid #8b6f47;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+}
