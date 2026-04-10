@@ -1,23 +1,37 @@
-<div id="quizContainer" class="quiz-container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quotation Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-  <div class="top-bar">
-    <button id="menuButton" class="menu-button">Return to Menu</button>
-    <div id="scoreDisplay" class="score-display">Score: 0 / 0</div>
+<body>
+
+  <div class="quiz-container" id="quizContainer">
+
+    <div class="top-bar">
+      <button id="menuButton" class="menu-button">Return to Menu</button>
+      <div id="scoreDisplay" class="score-display">Score: 0 / 0</div>
+    </div>
+
+    <div id="quoteText" class="quote-text">Loading...</div>
+
+    <div id="optionsContainer" class="options-container"></div>
+
+    <button id="hintButton" class="hint-button">Hint</button>
+    <div id="hintText" class="hint-text hidden"></div>
+
+    <button id="nextButton" class="next-button hidden">Next Question</button>
+
   </div>
 
-  <div id="quoteText" class="quote-text">Loading...</div>
+  <div id="resultScreen" class="hidden result-screen">
+    <h2>Your Score</h2>
+    <p id="finalScore"></p>
+    <button onclick="location.href='index.html'">Return to Menu</button>
+  </div>
 
-  <div id="optionsContainer" class="options-container"></div>
-
-  <button id="hintButton" class="hint-button">Hint</button>
-  <div id="hintText" class="hint-text hidden"></div>
-
-  <button id="nextButton" class="next-button hidden">Next Question</button>
-
-</div>
-
-<div id="resultScreen" class="hidden">
-  <h2>Your Score</h2>
-  <p id="finalScore"></p>
-  <button onclick="location.href='index.html'">Return to Menu</button>
-</div>
+  <script src="quotation.js?v=1"></script>
+</body>
+</html>
