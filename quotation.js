@@ -399,7 +399,8 @@ function selectAnswer(button, selected, correct) {
 
 function updateScoreDisplay() {
   const scoreDisplay = document.getElementById("scoreDisplay");
-  scoreDisplay.textContent = "Score: " + score + " / " + currentIndex;
+  scoreDisplay.textContent = "Score: " + score + " / " + (currentIndex + 1);
+
 }
 
 document.getElementById("nextButton").onclick = () => {
