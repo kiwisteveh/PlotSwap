@@ -412,12 +412,18 @@ document.getElementById("nextButton").onclick = () => {
   }
 };
 
-function showResults() {
-  document.getElementById("quizContainer").classList.add("hidden");
-  document.getElementById("resultScreen").classList.remove("hidden");
-  document.getElementById("finalScore").textContent =
-    score + " out of " + shuffledQuotes.length;
+function updateScoreDisplay() {
+  const scoreDisplay = document.getElementById("scoreDisplay");
+
+  if (currentIndex === 0 && score === 0) {
+    // Before any question is answered
+    scoreDisplay.textContent = "Score: 0 / 0";
+  } else {
+    // After answering at least one question
+    scoreDisplay.textContent = "Score: " + score + " / " + currentIndex;
+  }
 }
+
 
 document.getElementById("hintButton").onclick = () => {
   document.getElementById("hintText").classList.remove("hidden");
