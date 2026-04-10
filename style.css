@@ -466,3 +466,13 @@ button:active {
   margin-bottom: 25px;
   color: #5a4630;
 }
+/* FORCE title + subtitle to display */
+.quiz-title,
+.quiz-subtitle {
+  display: block !important;
+  visibility: visible !important;
+  color: #3a2a18 !important;
+  font-size: inherit !important;
+  margin: 0 auto 20px auto !important;
+  text-align: center !important;
+}
