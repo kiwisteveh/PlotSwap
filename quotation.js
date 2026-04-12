@@ -416,17 +416,6 @@ document.getElementById("nextButton").onclick = () => {
   }
 };
 
-function updateScoreDisplay() {
-  const scoreDisplay = document.getElementById("scoreDisplay");
-
-  if (currentIndex === 0 && score === 0) {
-    // Before any question is answered
-    scoreDisplay.textContent = "Score: 0 / 0";
-  } else {
-    // After answering at least one question
-    scoreDisplay.textContent = "Score: " + score + " / " + currentIndex;
-  }
-}
 
 
 document.getElementById("hintButton").onclick = () => {
