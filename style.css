@@ -484,6 +484,22 @@ button:active {
   margin: 0 auto 20px auto !important;
   text-align: center !important;
 }
+.menu-button,
+.hint-button,
+.next-button {
+  padding: 10px 16px;        /* consistent vertical height */
+  font-size: 16px;
+  line-height: 1.2;          /* prevents tall/short mismatch */
+  height: auto;              /* ensures no forced shrink */
+}
+.top-bar {
+  display: flex;
+  align-items: center;       /* vertically align all buttons */
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+
 .quiz-title {
   font-size: 36px !important;
   font-weight: bold;
