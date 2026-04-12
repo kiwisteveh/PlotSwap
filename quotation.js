@@ -355,9 +355,11 @@ function showQuestion() {
   quoteEl.textContent = q.text;
 
   // Fade‑in animation
-  quoteEl.classList.remove("visible");
-  void quoteEl.offsetWidth;   // restart animation
+ quoteEl.classList.remove("visible");
+setTimeout(() => {
   quoteEl.classList.add("visible");
+}, 10);
+
 
   const optionsContainer = document.getElementById("optionsContainer");
   optionsContainer.innerHTML = "";
