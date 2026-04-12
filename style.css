@@ -484,3 +484,17 @@ button:active {
   margin: 0 auto 20px auto !important;
   text-align: center !important;
 }
+.quiz-title {
+  font-size: 36px !important;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 8px;
+  color: #3a2a18;
+}
+
+.quiz-subtitle {
+  font-size: 22px !important;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #5a4630;
+}
