@@ -332,6 +332,7 @@ const quotes = [
 
 let currentIndex = 0;
 let score = 0;
+let questionsAnswered = 0; 
 let shuffledQuotes = [];
 let acceptingAnswers = true;
 
@@ -379,6 +380,9 @@ function selectAnswer(button, selected, correct) {
 
   buttons.forEach(btn => btn.disabled = true);
 
+  // Count this question as answered
+  questionsAnswered++;   // NEW
+
   if (selected === correct) {
     button.classList.add("correct");
     score++;
@@ -396,12 +400,12 @@ function selectAnswer(button, selected, correct) {
 
   document.getElementById("nextButton").classList.remove("hidden");
 }
-
 function updateScoreDisplay() {
   const scoreDisplay = document.getElementById("scoreDisplay");
-  scoreDisplay.textContent = "Score: " + score + " / " + (currentIndex + 1);
-
+  scoreDisplay.textContent = "Score: " + score + " / " + questionsAnswered;
 }
+
+
 
 document.getElementById("nextButton").onclick = () => {
   currentIndex++;
