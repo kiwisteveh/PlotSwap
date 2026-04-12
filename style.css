@@ -518,3 +518,8 @@ button:active {
   display: flex !important;
   align-items: center !important;
 }
+.menu-button,
+.hint-button,
+.next-button {
+  font-family: inherit !important;
+}
