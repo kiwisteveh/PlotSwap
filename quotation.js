@@ -351,7 +351,13 @@ function startQuiz() {
 function showQuestion() {
   const q = shuffledQuotes[currentIndex];
 
-  document.getElementById("quoteText").textContent = q.text;
+  const quoteEl = document.getElementById("quoteText");
+  quoteEl.textContent = q.text;
+
+  // Fade‑in animation
+  quoteEl.classList.remove("visible");
+  void quoteEl.offsetWidth;   // restart animation
+  quoteEl.classList.add("visible");
 
   const optionsContainer = document.getElementById("optionsContainer");
   optionsContainer.innerHTML = "";
