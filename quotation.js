@@ -6,31 +6,31 @@ const quotes = [
 
   // --- ATTICUS (12) ---
   {
-    text: "Sometimes doing what is right means standing alone.",
+    text: "The one thing that doesn’t abide by majority rule is a person’s conscience.",
     speaker: "Atticus",
     options: ["Atticus", "Scout", "Jem", "Miss Maudie"],
     hint: "This character often speaks about moral courage."
   },
   {
-    text: "You never truly understand someone until you consider things from their point of view.",
+    text: "Simply because we were licked a hundred years before we started is no reason for us not to try to win.",
     speaker: "Atticus",
     options: ["Atticus", "Calpurnia", "Aunt Alexandra", "Heck Tate"],
     hint: "A lesson about empathy."
   },
   {
-    text: "Courage is not a man with a gun; it is knowing you are beaten but beginning anyway.",
+    text: "Before I can live with other folks I’ve got to live with myself.",
     speaker: "Atticus",
     options: ["Atticus", "Jem", "Scout", "Tom Robinson"],
     hint: "This character redefines bravery for the children."
   },
   {
-    text: "The truth does not change just because people refuse to see it.",
+    text: "You just hold your head high and keep those fists down. ",
     speaker: "Atticus",
     options: ["Atticus", "Miss Maudie", "Aunt Alexandra", "Jem"],
     hint: "This speaker values honesty above comfort."
   },
   {
-    text: "Most people are good when you finally see them clearly.",
+    text: "Best way to clear the air is to have it all out in the open.",
     speaker: "Atticus",
     options: ["Atticus", "Scout", "Calpurnia", "Boo Radley"],
     hint: "A reflection on human nature."
